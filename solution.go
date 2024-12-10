@@ -1,15 +1,29 @@
 package main
 
-func removeNthFromEnd(head *ListNode, n int) *ListNode {
-	dummy := &ListNode{Next: head}
-	slow, fast := dummy, dummy
-	for i := 0; i < n; i++ {
-		fast = fast.Next
+import (
+	"fmt"
+)
+
+type user struct {
+	name string
+	age  uint64
+}
+
+func main() {
+	u := []user{
+		{"asong", 23},
+		{"song", 19},
+		{"asong2020", 18},
 	}
-	for fast != nil && fast.Next != nil {
-		fast = fast.Next
-		slow = slow.Next
+	n := make([]*user, 0, len(u))
+
+	for _, v := range u {
+		o := v
+		n = append(n, &o)
 	}
-	slow.Next = slow.Next.Next
-	return dummy.Next
+	fmt.Println(n)
+
+	for _, v := range n {
+		fmt.Println(v)
+	}
 }
